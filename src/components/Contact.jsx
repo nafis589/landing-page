@@ -1,75 +1,64 @@
 import { motion } from "framer-motion";
 import styled from "@emotion/styled";
-import {
-  FaEnvelope,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaFacebook,
-  FaTwitter,
-  FaLinkedin,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const ContactSection = styled.section`
-  padding: 6rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   background: white;
 `;
 
 const Container = styled.div`
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+
+  @media (max-width: 968px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const ImageSection = styled.div`
+  background-image: url();
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  min-height: 600px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(26, 35, 126, 0.7),
+      rgba(48, 63, 159, 0.7)
+    );
+  }
+
+  @media (max-width: 968px) {
+    min-height: 300px;
+  }
+`;
+
+const ContentSection = styled.div`
+  padding: 2rem;
 `;
 
 const Title = styled(motion.h2)`
-  text-align: center;
   font-size: clamp(2rem, 4vw, 3rem);
   color: #1a237e;
-  margin-bottom: 3rem;
-`;
-
-const Description = styled(motion.p)`
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 3rem;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #444;
-`;
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-`;
-
-const ContactInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-`;
-
-const InfoItem = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  svg {
-    font-size: 1.5rem;
-    color: #1a237e;
-  }
-`;
-
-const InfoText = styled.div`
-  h3 {
-    color: #1a237e;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    color: #666;
-    line-height: 1.6;
-  }
+  margin-bottom: 1.5rem;
 `;
 
 const Form = styled(motion.form)`
@@ -83,11 +72,12 @@ const Input = styled.input`
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
 
   &:focus {
     outline: none;
     border-color: #1a237e;
+    box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.1);
   }
 `;
 
@@ -98,11 +88,12 @@ const TextArea = styled.textarea`
   font-size: 1rem;
   min-height: 150px;
   resize: vertical;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
 
   &:focus {
     outline: none;
     border-color: #1a237e;
+    box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.1);
   }
 `;
 
@@ -168,87 +159,15 @@ const Contact = () => {
   return (
     <ContactSection id="contact">
       <Container>
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <Title variants={itemVariants}>Contact Us</Title>
-          <Description variants={itemVariants}>
-            Have questions? We&apos;d love to hear from you. Send us a message
-            and we&apos;ll respond as soon as possible.
-          </Description>
-
-          <Grid>
-            <ContactInfo>
-              <InfoItem variants={itemVariants}>
-                <FaMapMarkerAlt />
-                <InfoText>
-                  <h3>Visit Us</h3>
-                  <p>
-                    123 University Avenue
-                    <br />
-                    City, State 12345
-                  </p>
-                </InfoText>
-              </InfoItem>
-
-              <InfoItem variants={itemVariants}>
-                <FaPhone />
-                <InfoText>
-                  <h3>Call Us</h3>
-                  <p>+1 (234) 567-8900</p>
-                </InfoText>
-              </InfoItem>
-
-              <InfoItem variants={itemVariants}>
-                <FaEnvelope />
-                <InfoText>
-                  <h3>Email Us</h3>
-                  <p>admissions@university.edu</p>
-                </InfoText>
-              </InfoItem>
-
-              <SocialLinks>
-                <SocialLink
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <FaFacebook />
-                </SocialLink>
-                <SocialLink
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <FaTwitter />
-                </SocialLink>
-                <SocialLink
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <FaLinkedin />
-                </SocialLink>
-                <SocialLink
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <FaInstagram />
-                </SocialLink>
-              </SocialLinks>
-            </ContactInfo>
+        <ImageSection />
+        <ContentSection>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <Title variants={itemVariants}>Get in Touch</Title>
 
             <Form variants={itemVariants} onSubmit={handleSubmit}>
               <Input type="text" placeholder="Your Name" required />
@@ -263,8 +182,47 @@ const Contact = () => {
                 Send Message
               </SubmitButton>
             </Form>
-          </Grid>
-        </motion.div>
+
+            <SocialLinks>
+              <SocialLink
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaFacebook />
+              </SocialLink>
+              <SocialLink
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaTwitter />
+              </SocialLink>
+              <SocialLink
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaLinkedin />
+              </SocialLink>
+              <SocialLink
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaInstagram />
+              </SocialLink>
+            </SocialLinks>
+          </motion.div>
+        </ContentSection>
       </Container>
     </ContactSection>
   );

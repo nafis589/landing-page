@@ -103,7 +103,7 @@ const Header = () => {
         <Logo>
           <img src={logoPath} alt="Logo" />
           <img src="/university-logo.svg" alt="" />
-          <span>IAI-TOGO</span>
+          <span>UNIVERSITY</span>
         </Logo>
 
         <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
