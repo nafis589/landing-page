@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion';
-import styled from '@emotion/styled';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import { useState } from 'react';
-import logo from '../images/logo.jpeg';
+import { motion } from "framer-motion";
+import styled from "@emotion/styled";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { useState } from "react";
+import logo from "../images/logo.jpeg";
 
 const logoPath = logo;
 
@@ -33,7 +33,7 @@ const Logo = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  
+
   img {
     height: 40px;
   }
@@ -46,7 +46,7 @@ const MenuButton = styled.button`
   font-size: 1.5rem;
   color: #1a237e;
   cursor: pointer;
-  
+
   @media (max-width: 768px) {
     display: block;
   }
@@ -55,9 +55,9 @@ const MenuButton = styled.button`
 const NavLinks = styled.div`
   display: flex;
   gap: 2rem;
-  
+
   @media (max-width: 768px) {
-    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
     position: absolute;
     top: 100%;
     left: 0;
@@ -76,7 +76,7 @@ const NavLink = styled(motion.a)`
   font-weight: 500;
   padding: 0.5rem;
   transition: color 0.3s ease;
-  
+
   &:hover {
     color: #303f9f;
   }
@@ -87,14 +87,14 @@ const Header = () => {
 
   const navVariants = {
     hidden: { opacity: 0, y: -20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.5,
-        ease: 'easeOut'
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
@@ -102,28 +102,30 @@ const Header = () => {
       <Nav>
         <Logo>
           <img src={logoPath} alt="Logo" />
-          <img src="/university-logo.svg" alt="University Logo" />
-          <span>University Name</span>
+          <img src="/university-logo.svg" alt="" />
+          <span>IAI-TOGO</span>
         </Logo>
-        
+
         <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </MenuButton>
 
         <NavLinks isOpen={isMenuOpen}>
-          {['Home', 'About', 'Programs', 'Testimonials', 'Contact'].map((item) => (
-            <NavLink
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              variants={navVariants}
-              initial="hidden"
-              animate="visible"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {item}
-            </NavLink>
-          ))}
+          {["Home", "About", "Programs", "Testimonials", "Contact"].map(
+            (item) => (
+              <NavLink
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                variants={navVariants}
+                initial="hidden"
+                animate="visible"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {item}
+              </NavLink>
+            )
+          )}
         </NavLinks>
       </Nav>
     </HeaderContainer>
