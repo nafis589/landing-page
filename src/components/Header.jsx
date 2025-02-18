@@ -2,6 +2,9 @@ import { motion } from 'framer-motion';
 import styled from '@emotion/styled';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { useState } from 'react';
+import logo from '../images/logo.jpeg';
+
+const logoPath = logo;
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -98,6 +101,7 @@ const Header = () => {
     <HeaderContainer>
       <Nav>
         <Logo>
+          <img src={logoPath} alt="Logo" />
           <img src="/university-logo.svg" alt="University Logo" />
           <span>University Name</span>
         </Logo>
