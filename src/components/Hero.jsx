@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import styled from '@emotion/styled';
-import { FaArrowRight } from 'react-icons/fa';
+import { motion } from "framer-motion";
+import styled from "@emotion/styled";
+import { FaArrowRight } from "react-icons/fa";
 
 const HeroSection = styled.section`
   min-height: 100vh;
@@ -9,7 +9,7 @@ const HeroSection = styled.section`
   justify-content: center;
   padding: 6rem 2rem;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-    url('/hero-background.jpg') center/cover no-repeat;
+    url("/src/images/harvard-university-cambridge-usa.jpg") center/cover no-repeat;
   color: white;
   text-align: center;
 `;
@@ -60,9 +60,9 @@ const Hero = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        staggerChildren: 0.3
-      }
-    }
+        staggerChildren: 0.3,
+      },
+    },
   };
 
   const itemVariants = {
@@ -71,9 +71,9 @@ const Hero = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   return (
@@ -88,8 +88,8 @@ const Hero = () => {
             Shape Your Future at Our University
           </Title>
           <Subtitle variants={itemVariants}>
-            Discover world-class education, innovative research, and endless opportunities
-            to excel in your chosen field.
+            Discover world-class education, innovative research, and endless
+            opportunities to excel in your chosen field.
           </Subtitle>
           <motion.div variants={itemVariants}>
             <RegisterButton
