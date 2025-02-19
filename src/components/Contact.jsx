@@ -24,7 +24,7 @@ const Container = styled.div`
 `;
 
 const ImageSection = styled.div`
-  background-image: url();
+  background-image: url("/src/images/form-img.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 20px;
@@ -39,11 +39,6 @@ const ImageSection = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-      45deg,
-      rgba(26, 35, 126, 0.7),
-      rgba(48, 63, 159, 0.7)
-    );
   }
 
   @media (max-width: 968px) {

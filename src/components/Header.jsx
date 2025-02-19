@@ -101,8 +101,6 @@ const Header = () => {
     <HeaderContainer>
       <Nav>
         <Logo>
-          <img src={logoPath} alt="Logo" />
-          <img src="/university-logo.svg" alt="" />
           <span>UNIVERSITY</span>
         </Logo>
 
